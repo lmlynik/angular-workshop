@@ -1,8 +1,24 @@
 <div>
   <input [(ngModel)]="name" type="text" />
-  <p>Is hungry?
+  <div>
+    Is hungry?
     <input [(ngModel)]="isHungry" type="checkbox" />
-  </p>
+    <div *ngIf="isHungry">Very hungry</div>
+    <div [ngSwitch]="color">
+      <p *ngSwitchCase="'brown'">Brown</p>
+      <p *ngSwitchCase="'black'">Black</p>
+      <p *ngSwitchCase="'grey'">Grey</p>
+    </div>
+    <div>
+      <p>Favorite food</p>
+      
+      <ul>
+        <li *ngFor="let food of favoriteFoods">
+          {{food}}
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <button (click)="say()">Say</button>
 </div>

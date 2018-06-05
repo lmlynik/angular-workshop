@@ -10,7 +10,12 @@ export class CatViewerComponent implements OnInit {
   @Input() name: string;
   @Input("say") somethingToSay;
 
-  isHungry: boolean
+  isHungry: boolean;
+  color: string = "grey";
+  favoriteFoods = [
+    "Caviar",
+    "Sardines"
+  ];
 
   constructor() { }
 
