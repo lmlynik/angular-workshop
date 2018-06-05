@@ -8,9 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CatViewerComponent implements OnInit {
 
   @Input() name: string;
+  @Input("say") somethingToSay;
   constructor() { }
 
   ngOnInit() {
   }
 
+  say(){
+    alert(this.somethingToSay);
+  }
 }
