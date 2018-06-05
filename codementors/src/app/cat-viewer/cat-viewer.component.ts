@@ -9,12 +9,15 @@ export class CatViewerComponent implements OnInit {
 
   @Input() name: string;
   @Input("say") somethingToSay;
+
+  isHungry: boolean
+
   constructor() { }
 
   ngOnInit() {
   }
 
   say(){
-    alert(this.somethingToSay);
+    alert(this.name + " says " + this.somethingToSay + (this.isHungry ? "!!!!" : ""));
   }
 }

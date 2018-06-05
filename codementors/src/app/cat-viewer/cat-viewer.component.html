@@ -1,4 +1,8 @@
-<p>
-  {{name}} works!
+<div>
+  <input [(ngModel)]="name" type="text" />
+  <p>Is hungry?
+    <input [(ngModel)]="isHungry" type="checkbox" />
+  </p>
+
   <button (click)="say()">Say</button>
-</p>
+</div>
