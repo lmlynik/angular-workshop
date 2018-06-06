@@ -1,0 +1,12 @@
+<div class="dashboard">
+  <div class="sidebar">
+    <ul>
+      <li *ngFor="let cat of cats" (click)="select(cat)">
+        {{cat.name}}
+      </li>
+    </ul>
+  </div>
+  <div class="content">
+    <app-cat-detail *ngIf="!!selectedCat" [cat]="selectedCat"></app-cat-detail>
+  </div>
+</div>

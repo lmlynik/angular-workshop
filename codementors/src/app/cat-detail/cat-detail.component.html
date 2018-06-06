@@ -1,0 +1,10 @@
+<div class="cat-detail-container">
+  <p>Name: {{cat.name | titlecase}}</p>
+  <img src="{{cat.img}}" >
+  <p>Favorite foods</p>
+  <ul>
+    <li *ngFor="let food of cat.foods">
+      {{food.name}}
+    </li>
+  </ul>
+</div>  

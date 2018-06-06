@@ -1,0 +1,14 @@
+.dashboard {
+  display: flex;
+}
+
+.sidebar {
+    width: 15%;
+}
+
+.sidebar li {
+    list-style-type: none;
+    cursor: pointer;
+    margin-top: 8px;
+    font-size: 28x;
+}
