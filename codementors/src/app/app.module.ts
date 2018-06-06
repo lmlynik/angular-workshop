@@ -8,6 +8,8 @@ import { CatViewerComponent } from './cat-viewer/cat-viewer.component';
 import { CatDetailComponent } from './cat-detail/cat-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CatService } from './cat.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { CatFormComponent } from './cat-form/cat-form.component';
 
 
 @NgModule({
@@ -15,11 +17,13 @@ import { CatService } from './cat.service';
     AppComponent,
     CatViewerComponent,
     CatDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    CatFormComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [CatService],
   bootstrap: [AppComponent]
