@@ -12,7 +12,8 @@ export class DashboardComponent implements OnInit {
     {
       id: "1",
       name: "Kicek",
-      img: "https://pbs.twimg.com/profile_images/630664501776527361/nIK2xTUE_400x400.jpg",
+      img:
+        "https://pbs.twimg.com/profile_images/630664501776527361/nIK2xTUE_400x400.jpg",
       foods: []
     },
     {
@@ -22,9 +23,10 @@ export class DashboardComponent implements OnInit {
       foods: []
     },
     {
-      id: "1",
+      id: "3",
       name: "Ciapek",
-      img: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1515433106i/24859156.png",
+      img:
+        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1515433106i/24859156.png",
       foods: []
     }
   ];
@@ -33,7 +35,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {}
 
-  select(cat: Cat){
+  select(cat: Cat) {
     this.selectedCat = cat;
+  }
+
+  onDeleted(cat: Cat) {
+    this.cats = this.cats.filter(c => c.id != cat.id);
+    this.selectedCat = null;
   }
 }

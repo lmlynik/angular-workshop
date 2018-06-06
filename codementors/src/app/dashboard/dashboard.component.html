@@ -7,6 +7,9 @@
     </ul>
   </div>
   <div class="content">
-    <app-cat-detail *ngIf="!!selectedCat" [cat]="selectedCat"></app-cat-detail>
+    <app-cat-detail 
+    *ngIf="!!selectedCat" 
+    [cat]="selectedCat"
+    (deleted)="onDeleted($event)"></app-cat-detail>
   </div>
 </div>

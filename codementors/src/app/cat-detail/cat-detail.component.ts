@@ -1,18 +1,20 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Cat } from '../cat';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Cat } from "../cat";
 
 @Component({
-  selector: 'app-cat-detail',
-  templateUrl: './cat-detail.component.html',
-  styleUrls: ['./cat-detail.component.css']
+  selector: "app-cat-detail",
+  templateUrl: "./cat-detail.component.html",
+  styleUrls: ["./cat-detail.component.css"]
 })
 export class CatDetailComponent implements OnInit {
-
   @Input() cat: Cat;
+  @Output() deleted = new EventEmitter<Cat>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  delete() {
+    this.deleted.emit(this.cat);
   }
-
 }
