@@ -1,5 +1,5 @@
 export class Cat {
-  id: string;
+  id?: string;
   name: string;
   img: string;
   foods: Food[]

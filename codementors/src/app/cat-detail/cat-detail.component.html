@@ -1,4 +1,4 @@
-<div class="cat-detail-container">
+<div *ngIf="!!cat" class="cat-detail-container">
   <p>Name: {{cat.name | titlecase}}</p>
   <img src="{{cat.img}}" >
   <p>Favorite foods</p>
@@ -8,4 +8,4 @@
     </li>
   </ul>
   <input type="button" value="Delete" (click)="delete()"/>
-</div>  
+</div>

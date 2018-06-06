@@ -1,15 +1,16 @@
 <div class="dashboard">
   <div class="sidebar">
+
     <ul>
-      <li *ngFor="let cat of cats" (click)="select(cat)">
-        {{cat.name}}
+      <li>
+        <a routerLink="/add">Add</a>
+      </li>
+      <li *ngFor="let cat of cats">
+        <a routerLink="/cats/{{cat.id}}">{{cat.name}}</a>
       </li>
     </ul>
   </div>
   <div class="content">
-    <app-cat-detail 
-    *ngIf="!!selectedCat" 
-    [cat]="selectedCat"
-    (deleted)="onDeleted($event)"></app-cat-detail>
+    <router-outlet></router-outlet>
   </div>
 </div>
