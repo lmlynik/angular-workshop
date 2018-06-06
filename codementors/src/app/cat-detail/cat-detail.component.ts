@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Cat } from "../cat";
+import { CatService } from "../cat.service";
 
 @Component({
   selector: "app-cat-detail",
@@ -10,11 +11,11 @@ export class CatDetailComponent implements OnInit {
   @Input() cat: Cat;
   @Output() deleted = new EventEmitter<Cat>();
 
-  constructor() {}
+  constructor(private catService: CatService) {}
 
   ngOnInit() {}
 
   delete() {
-    this.deleted.emit(this.cat);
+    this.catService.deleteCat(this.cat);
   }
 }

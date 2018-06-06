@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CatViewerComponent } from './cat-viewer/cat-viewer.component';
 import { CatDetailComponent } from './cat-detail/cat-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CatService } from './cat.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
