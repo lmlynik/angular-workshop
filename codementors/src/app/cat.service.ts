@@ -31,9 +31,11 @@ export class CatService {
 
   private catDeletedSource = new Subject<Cat>();
   private catAddedSource = new Subject<Cat>();
+  private catUpdatedSource = new Subject<Cat>();
 
   catDeleted = this.catDeletedSource.asObservable();
   catAdded = this.catAddedSource.asObservable();
+  catUpdated = this.catUpdatedSource.asObservable();
 
   getCats(): Observable<Cat[]> {
     return Observable.of(this.cats);
@@ -49,5 +51,9 @@ export class CatService {
 
   addCat(cat: Cat){
     this.catAddedSource.next(cat);
+  }
+
+  updateCat(cat: Cat){
+    this.catUpdatedSource.next(cat);
   }
 }

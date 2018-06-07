@@ -10,6 +10,7 @@ import { ActivatedRoute, Params } from "@angular/router";
 export class CatFormComponent implements OnInit {
   name: string;
   img: string;
+  id?: string;
   edit: boolean;
   constructor(private catService: CatService, private route: ActivatedRoute) {}
 
@@ -19,12 +20,23 @@ export class CatFormComponent implements OnInit {
       this.edit = true;
       this.catService.getCatById(id).subscribe(cat => {
         this.img = cat.img;
+        this.id = cat.id;
         this.name = cat.name;
       });
     });
   }
 
   save() {
+    if(this.edit && !!this.id){
+      this.catService.updateCat(
+        {
+          id: this.id,
+          name: this.name,
+          img: this.img,
+          foods: []
+        }
+      );
+    }
     this.catService.addCat({
       name: this.name,
       img: this.img,
