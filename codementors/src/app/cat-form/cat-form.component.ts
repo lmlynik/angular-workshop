@@ -27,15 +27,14 @@ export class CatFormComponent implements OnInit {
   }
 
   save() {
-    if(this.edit && !!this.id){
-      this.catService.updateCat(
-        {
-          id: this.id,
-          name: this.name,
-          img: this.img,
-          foods: []
-        }
-      );
+    if (this.edit && !!this.id) {
+      this.catService.updateCat({
+        id: this.id,
+        name: this.name,
+        img: this.img,
+        foods: []
+      });
+      return;
     }
     this.catService.addCat({
       name: this.name,

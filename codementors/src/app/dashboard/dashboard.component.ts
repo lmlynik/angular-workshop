@@ -37,7 +37,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   onUpdate(cat: Cat) {
-    this.cats.push(cat);
+    this.onDeleted(cat);
+    this.onAdded(cat);
   }
 
   onDeleted(cat: Cat) {
