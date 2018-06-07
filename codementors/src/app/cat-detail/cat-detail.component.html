@@ -6,6 +6,7 @@
     <li *ngFor="let food of cat.foods">
       {{food.name}}
     </li>
-  </ul>
+    </ul>
+  <a routerLink="/cats/edit/{{cat.id}}">Edit</a>
   <input type="button" value="Delete" (click)="delete()"/>
 </div>  

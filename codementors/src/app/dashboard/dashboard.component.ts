@@ -21,11 +21,20 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.onDeleted(deletedCat)
     );
 
+    this.catService.catAdded
+    .subscribe(catAdded => 
+      this.onAdded(catAdded)
+    );
+
     this.catService.getCats().subscribe(cats => this.cats = cats);
   }
 
   ngOnDestroy() {
     this.catDeletionSub.unsubscribe();
+  }
+
+  onAdded(cat: Cat){
+    this.cats.push(cat);
   }
   
   onDeleted(cat: Cat) {

@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'cats/:id', component: CatDetailComponent },
   { path: 'add', component: CatFormComponent },
+  { path: 'cats/edit/:id', component: CatFormComponent },
 
 ];
 
