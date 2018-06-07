@@ -46,14 +46,30 @@ export class CatService {
   }
 
   deleteCat(cat: Cat) {
+    this.onDeleted(cat);
     this.catDeletedSource.next(cat);
   }
 
   addCat(cat: Cat){
+    this.onAdded(cat);
     this.catAddedSource.next(cat);
   }
 
   updateCat(cat: Cat){
+    this.onUpdate(cat);
     this.catUpdatedSource.next(cat);
+  }
+
+  private onAdded(cat: Cat) {
+    this.cats.push(cat);
+  }
+
+  private onUpdate(cat: Cat) {
+    this.onDeleted(cat);
+    this.onAdded(cat);
+  }
+
+  private onDeleted(cat: Cat) {
+    this.cats = this.cats.filter(c => c.id != cat.id);
   }
 }
