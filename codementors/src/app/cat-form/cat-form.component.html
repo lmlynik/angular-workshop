@@ -1,3 +1,12 @@
-<p>
-  cat-form works!
-</p>
+<div>
+  <label for="name">Name</label>
+  <input id="name"
+         type="text" 
+        [(ngModel]="name" />
+  <label for="img">Img</label>
+  <input id="img" 
+         type="url" [(ngModel)]="img" />
+  <input type="button"
+         (class)="add()" />
+  
+</div>>

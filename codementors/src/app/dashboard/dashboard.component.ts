@@ -15,7 +15,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(private catService: CatService) {}
 
   ngOnInit() {
-    this.catDeletionSub = this.catService.catDeleted.subscribe(deletedCat =>
+    this.catDeletionSub = 
+    this.catService.catDeleted
+    .subscribe(deletedCat =>
       this.onDeleted(deletedCat)
     );
 
