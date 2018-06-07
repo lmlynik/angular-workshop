@@ -17,7 +17,7 @@ export class CatDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       const id = params["id"];
-      this.catService.getCatById(id).subscribe(cat => this.cat = cat);
+      this.catService.getCatById(id).subscribe(cat => (this.cat = cat));
     });
   }
 

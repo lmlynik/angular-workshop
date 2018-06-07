@@ -9,24 +9,21 @@ import { Subscription } from "rxjs/Subscription";
   styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-  catDeletionSub: Subscription;
+  catsUpdatedSub: Subscription;
   cats: Cat[];
 
   constructor(private catService: CatService) {}
+  catUpdate(cats: Cat[]) {
+    this.cats = cats;
+  }
 
   ngOnInit() {
-    this.catDeletionSub = this.catService.catDeleted.subscribe(deletedCat =>
-      this.onDeleted(deletedCat)
-    );
-
-    this.catService.getCats().subscribe(cats => this.cats = cats);
+    const catUpdate = (cats: Cat[]) => (this.cats = cats);
+    this.catsUpdatedSub = this.catService.catsUpdated.subscribe(catUpdate);
+    this.catService.getCats().subscribe(catUpdate);
   }
 
   ngOnDestroy() {
-    this.catDeletionSub.unsubscribe();
-  }
-  
-  onDeleted(cat: Cat) {
-    this.cats = this.cats.filter(c => c.id != cat.id);
+    this.catsUpdatedSub.unsubscribe();
   }
 }
