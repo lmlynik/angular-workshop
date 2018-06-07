@@ -44,4 +44,8 @@ export class CatService {
   deleteCat(cat: Cat) {
     this.catDeletedSource.next(cat);
   }
+
+  addCat(cat: Cat){
+    
+  }
 }
