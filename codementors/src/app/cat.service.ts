@@ -51,6 +51,7 @@ export class CatService {
   }
 
   addCat(cat: Cat){
+    cat.id = cat.id || cat.name;
     this.onAdded(cat);
     this.catAddedSource.next(cat);
   }
@@ -70,6 +71,8 @@ export class CatService {
   }
 
   private onDeleted(cat: Cat) {
-    this.cats = this.cats.filter(c => c.id != cat.id);
+    let _catIdx = this.cats.findIndex(c => c.id != cat.id);
+    this.cats.splice(_catIdx, 1);
+    // this.cats = this.cats.filter(c => c.id != cat.id);
   }
 }

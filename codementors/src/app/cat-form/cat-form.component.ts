@@ -17,6 +17,8 @@ export class CatFormComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       const id = params["id"];
+      if(!id)
+        return;
       this.edit = true;
       this.catService.getCatById(id).subscribe(cat => {
         this.img = cat.img;
