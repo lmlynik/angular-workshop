@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CatService } from "../cat.service";
+import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({
   selector: "app-cat-form",
@@ -9,11 +10,21 @@ import { CatService } from "../cat.service";
 export class CatFormComponent implements OnInit {
   name: string;
   img: string;
-  constructor(private catService: CatService) {}
+  edit: boolean;
+  constructor(private catService: CatService, private route: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.params.forEach((params: Params) => {
+      const id = params["id"];
+      this.edit = true;
+      this.catService.getCatById(id).subscribe(cat => {
+        this.img = cat.img;
+        this.name = cat.name;
+      });
+    });
+  }
 
-  add() {
+  save() {
     this.catService.addCat({
       name: this.name,
       img: this.img,

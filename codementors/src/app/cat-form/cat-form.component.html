@@ -1,12 +1,14 @@
 <div>
-  <label for="name">Name</label>
-  <input id="name"
-         type="text" 
-        [(ngModel)]="name" />
-  <label for="img">Img</label>
-  <input id="img" 
-         type="url" [(ngModel)]="img" />
-  <input type="button"
-         (click)="add()" />
-  
+  <div>
+    <label for="name">Name</label>
+    <input id="name" type="text" [(ngModel)]="name" />
+    <label for="img">Img</label>
+    <input id="img" type="url" [(ngModel)]="img" />
+    <input type="button" value="Save" (click)="save()" />
+  </div>
+  <div>
+    
+    <img src={{img}} alt={{name}}>
+  </div>
+
 </div>
